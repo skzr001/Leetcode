@@ -3,7 +3,7 @@
 
 >   至于更新，sum+gas[i]-[cost]>0则意味着可以到达下一个节点i+1。
 >   first指针的更新，当sum<0时，意味着last指针无法到达下一个节点，此时要更新first指针，同时要更新sum和count，直到找到一个first值使得sum>=0
-<code>
+<pre><code>
 class Solution {
     /*
     Follow up:
@@ -31,4 +31,4 @@ public:
         return sum>=0?first:-1;
     }
 };
-</code>
+</code></pre>
