@@ -1,0 +1,26 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 class Solution \{\
+public:\
+    //I think this problem is rather simple when using sliding window method, absolutely this method is O(n) complexicity.\
+    //I maybe wrong. In case like\{3,2,1,2\} with k=3, we cannot solely compare new element with previous max element.\
+    \
+    //It's a pity that I cannot figure out the solution.\
+    //This Dr. Huang's assistance I figure it out.\
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) \{\
+        multiset<int> hist;\
+        vector<int> ret;\
+        for(int i=0;i<nums.size();i++)\{\
+            if(i>=k) hist.erase(hist.find(nums[i-k]));\
+            hist.insert(nums[i]);\
+            if(i>=k-1) ret.push_back(*hist.rbegin());\
+        \}\
+        return ret;\
+    \}\
+\};\
+}
